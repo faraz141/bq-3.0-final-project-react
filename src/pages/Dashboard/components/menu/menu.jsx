@@ -3,10 +3,11 @@ import './menu.css';
 // import { FaEdit, FaTrash } from 'react-icons/fa';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
+import { Button, TextField } from '@mui/material';
 const MenuComponent = () => {
   const [selectedMenu, setSelectedMenu] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
-  const [isExpanded, setIsExpanded] = useState(false);
+  //   const [isExpanded, setIsExpanded] = useState(false);
   const [menus, setMenus] = useState([
     {
       id: 1,
@@ -1058,9 +1059,9 @@ const MenuComponent = () => {
       item.name.toLowerCase().includes(searchTerm.toLowerCase()),
     );
 
-  const handleToggleClick = () => {
-    setIsExpanded(!isExpanded);
-  };
+  //   const handleToggleClick = () => {
+  //     setIsExpanded(!isExpanded);
+  //   };
 
   const handleFormInputChange = (e) => {
     const { name, value } = e.target;
@@ -1100,28 +1101,47 @@ const MenuComponent = () => {
   return (
     <div className="container">
       <div className="search-container">
-        <input
-          type="text"
-          placeholder="Search dishes..."
+        <TextField
+          label="Search dishes..."
+          variant="outlined"
           value={searchTerm}
           onChange={handleSearchChange}
-          className="search-input"
+          fullWidth
+          sx={{
+            '& .MuiOutlinedInput-root': {
+              '& fieldset': {
+                borderColor: '#5e3fbe',
+              },
+              '&:hover fieldset': {
+                borderColor: '#5e3fbe',
+              },
+              '&.Mui-focused fieldset': {
+                borderColor: '#5e3fbe',
+                boxShadow: '0 4px 6px rgba(0, 123, 255, 0.2)',
+              },
+            },
+            '& .MuiInputLabel-root': {
+              color: '#5e3fbe', // Default label color
+            },
+            '& .MuiInputLabel-root.Mui-focused': {
+              color: '#5e3fbe', // Label color when focused (black)
+            },
+          }}
         />
-        <button
+        <Button
+          variant="contained"
           onClick={() => setIsFormOpen(true)}
           className="menu-content-button"
         >
           Add Menu
-        </button>
+        </Button>
         {/* <div className="modal-content">
           
         </div> */}
       </div>
 
       <div className="menu-buttons-container">
-        <div
-          className={`menu-buttons ${isExpanded ? 'expanded' : 'collapsed'}`}
-        >
+        <div className={`menu-buttons '}`}>
           <button
             className={`menu-button ${selectedMenu === 'All' ? 'active' : ''}`}
             onClick={() => handleMenuClick('All')}
@@ -1150,80 +1170,77 @@ const MenuComponent = () => {
           >
             Salad
           </button>
-          {/* Add more buttons here */}
-          {/* Only show the first 4 buttons initially */}
-          {isExpanded && (
-            <>
-              <button
-                className={`menu-button ${
-                  selectedMenu === 'Drinks' ? 'active' : ''
-                }`}
-                onClick={() => handleMenuClick('Drinks')}
-              >
-                Drinks
-              </button>
-              <button
-                className={`menu-button ${
-                  selectedMenu === 'Fast Food' ? 'active' : ''
-                }`}
-                onClick={() => handleMenuClick('Fast Food')}
-              >
-                Fast Food
-              </button>
-              <button
-                className={`menu-button ${
-                  selectedMenu === 'Steak' ? 'active' : ''
-                }`}
-                onClick={() => handleMenuClick('Steak')}
-              >
-                Steak
-              </button>
-              <button
-                className={`menu-button ${
-                  selectedMenu === 'BBQ' ? 'active' : ''
-                }`}
-                onClick={() => handleMenuClick('BBQ')}
-              >
-                BBQ
-              </button>
-              <button
-                className={`menu-button ${
-                  selectedMenu === 'Dessert' ? 'active' : ''
-                }`}
-                onClick={() => handleMenuClick('Dessert')}
-              >
-                Dessert
-              </button>
-              <button
-                className={`menu-button ${
-                  selectedMenu === 'Indian' ? 'active' : ''
-                }`}
-                onClick={() => handleMenuClick('Indian')}
-              >
-                Indian
-              </button>
-              <button
-                className={`menu-button ${
-                  selectedMenu === 'Western' ? 'active' : ''
-                }`}
-                onClick={() => handleMenuClick('Western')}
-              >
-                Western
-              </button>
-              <button
-                className={`menu-button ${
-                  selectedMenu === 'Pizza' ? 'active' : ''
-                }`}
-                onClick={() => handleMenuClick('Pizza')}
-              >
-                Pizza
-              </button>
-            </>
-          )}
+
+          <>
+            <button
+              className={`menu-button ${
+                selectedMenu === 'Drinks' ? 'active' : ''
+              }`}
+              onClick={() => handleMenuClick('Drinks')}
+            >
+              Drinks
+            </button>
+            <button
+              className={`menu-button ${
+                selectedMenu === 'Fast Food' ? 'active' : ''
+              }`}
+              onClick={() => handleMenuClick('Fast Food')}
+            >
+              FastFood
+            </button>
+            <button
+              className={`menu-button ${
+                selectedMenu === 'Steak' ? 'active' : ''
+              }`}
+              onClick={() => handleMenuClick('Steak')}
+            >
+              Steak
+            </button>
+            <button
+              className={`menu-button ${
+                selectedMenu === 'BBQ' ? 'active' : ''
+              }`}
+              onClick={() => handleMenuClick('BBQ')}
+            >
+              BBQ
+            </button>
+            <button
+              className={`menu-button ${
+                selectedMenu === 'Dessert' ? 'active' : ''
+              }`}
+              onClick={() => handleMenuClick('Dessert')}
+            >
+              Dessert
+            </button>
+            <button
+              className={`menu-button ${
+                selectedMenu === 'Indian' ? 'active' : ''
+              }`}
+              onClick={() => handleMenuClick('Indian')}
+            >
+              Indian
+            </button>
+            <button
+              className={`menu-button ${
+                selectedMenu === 'Western' ? 'active' : ''
+              }`}
+              onClick={() => handleMenuClick('Western')}
+            >
+              Western
+            </button>
+            <button
+              className={`menu-button ${
+                selectedMenu === 'Pizza' ? 'active' : ''
+              }`}
+              onClick={() => handleMenuClick('Pizza')}
+            >
+              Pizza
+            </button>
+          </>
         </div>
-        <button className="toggle-button" onClick={handleToggleClick}>
+        {/* <button className="toggle-button" onClick={handleToggleClick}>
           <span>{isExpanded ? '▲' : '▼'}</span>
-        </button>
+        </button> */}
       </div>
 
       {isFormOpen && (
