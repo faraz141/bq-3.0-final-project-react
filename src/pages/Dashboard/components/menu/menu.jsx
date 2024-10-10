@@ -14,7 +14,7 @@ const MenuComponent = () => {
       name: 'Biryani',
       description:
         'A fragrant rice dish cooked with tender meat, spices, and herbs.',
-      price: 350,
+      price: 349,
       category: 'Desi',
       imageUrl:
         'https://www.licious.in/blog/wp-content/uploads/2022/06/chicken-hyderabadi-biryani-01.jpg',
