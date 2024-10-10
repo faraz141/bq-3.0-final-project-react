@@ -1131,7 +1131,8 @@ const MenuComponent = () => {
         <Button
           variant="contained"
           onClick={() => setIsFormOpen(true)}
-          className="menu-content-button"
+          sx={{ backgroundColor: '#5e3fbe' }}
+          className="menu-content-button "
         >
           Add Menu
         </Button>
